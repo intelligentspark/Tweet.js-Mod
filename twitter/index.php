@@ -15,8 +15,9 @@ Created: 2013.02.20
 
 https://github.com/seaofclouds/tweet
 https://github.com/themattharris/tmhOAuth
-
  */
+
+require '../vendor/themattharris/tmhoauth/tmOAuth.php';
 
 if(empty($_POST)) { die(); }
 
@@ -35,9 +36,6 @@ class ezTweet {
 	// Your Twitter App Access Token Secret
 	private $user_secret = 'YOUR_ACCESS_TOKEN_SECRET';
 
-	// Path to tmhOAuth libraries
-	private $lib = './lib/';
-
 	// Enable caching
 	private $cache_enabled = true;
 
@@ -55,7 +53,6 @@ class ezTweet {
 	public function __construct() {
 		// Initialize paths and etc.
 		$this->pathify($this->cache_dir);
-		$this->pathify($this->lib);
 		$this->message = '';
 
 		// Set server-side debug params
@@ -138,8 +135,6 @@ class ezTweet {
 	}
 
 	private function getTwitterJSON() {
-		require $this->lib.'tmhOAuth.php';
-		require $this->lib.'tmhUtilities.php';
 
 		$tmhOAuth = new tmhOAuth(array(
 			'host'                  => $_POST['request']['host'],
@@ -176,5 +171,3 @@ class ezTweet {
 
 $ezTweet = new ezTweet;
 $ezTweet->fetch();
-
-?>

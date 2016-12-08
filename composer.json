@@ -1,0 +1,8 @@
+{
+    "name": "intelligentspark/tweet.js-mod",
+    "description": "Basic wrapper for Seaofclouds / Tweet.js that incorporates functionality with Twitter's v1.1 API, now with composer support.",
+    "type": "Hybrid PHP Library/JS Plugin",
+    "require": {
+        "themattharris/tmhoauth": "0.8.*"
+    }
+}
